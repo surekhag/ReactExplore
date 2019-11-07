@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import LoginModule from './loginModule';
 import PropsDemo from './propsDemo'
+import ListPropsDemo from './ListPropsDemo';
 
 class App  extends React.Component{
   render(){
@@ -23,7 +24,8 @@ class App  extends React.Component{
           </a>
         </header>
         <LoginModule />
-        {/* <PropsDemo name="Surekha" age="58"/> */}
+        <PropsDemo name="Surekha" age="58"/>
+        <ListPropsDemo />
         
       </div>
     );

@@ -39,3 +39,9 @@ label{
   padding: 20px;  
   text-align: center;
 }
+
+.propsListing{
+  border: 1 px solid green;
+  padding: 10px 5px;  
+  text-align: center;  
+}

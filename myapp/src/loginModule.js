@@ -33,8 +33,9 @@ class loginModule extends React.Component {
     };
 
     render() {
-        return (                 
+        return (           
             <div className="Login">
+                <h1>1. Login Module</h1>
                 <p id="message"></p>   
                 <form onSubmit={this.handleSubmit}>
                     <div>
