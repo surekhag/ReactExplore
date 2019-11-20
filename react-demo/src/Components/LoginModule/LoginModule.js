@@ -35,7 +35,9 @@ class LoginModule extends Component {
                             message: "Login Successful!"
                         })
                         return;
-                    });        
+                    }, (error) => {
+                        console.log(error);
+                      });        
             }
             else {
                 this.setState({
