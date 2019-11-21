@@ -1,6 +1,22 @@
 .cardContainer{
-    border: 1px solid green;    
-    display: flex; 
-    flex-direction: column;
-    align-items: center;
+    
+   
+    width: 100%;
+}
+.cardContainer> div{
+    width: 100%;;
+   
+}
+ .imageContainer{
+    display: flex;
+    justify-content: center;
+    margin: 20px 29px 28px 31px;
+    overflow: hidden;
+}
+.prodInfo{
+    margin: 0 17px;
+    overflow: hidden;
+}
+.cardButton{
+width: 70%;
 }

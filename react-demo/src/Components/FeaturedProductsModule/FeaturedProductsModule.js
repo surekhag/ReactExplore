@@ -41,7 +41,9 @@ class FeaturedProductsModule extends Component {
         
         return (<div className="cardsContainer">
             <div className="arrow"><span>arrow</span></div>
-            <div className="cardsCarousal">{productList}</div>
+            <div className="cardsCarousal">
+                <h1 className="heading">Featured Products</h1>
+                {productList}</div>
             <div className="arrow"><span>arrow</span></div>
         </div>)
     }

@@ -5,7 +5,7 @@
 }
 
 .arrow{
-    border: 1px solid red;
+   
     width: 10%;
     display: flex;
     align-self: center;
@@ -15,18 +15,23 @@
 }
 .cardsCarousal{
     width: 80%;
-    border: 1px solid red;
+   
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
 }
 .cardsCarousal >div{
-    border: 1px solid yellow;
+    border: 1px solid grey;
     display: inline-block;
-    padding-left: 20px;
+    margin-left: 20px;
     width: 250px;
     display: inline-block;
 }
 .cardsCarousal > div:last-child{
-    padding-right: 20px;
+    margin-right: 20px;
+}
+.heading {
+    margin-top: 40px;
+    text-align: center;
+    margin-bottom: 32px;
 }
