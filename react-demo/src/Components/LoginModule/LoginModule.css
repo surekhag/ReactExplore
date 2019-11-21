@@ -9,20 +9,19 @@ align-items: center;
 }
 .login{
     width: 30%;
-    height: 100vh;    
+    height: 100vh;   
 }
+
 .login >div{
     text-align: left;
     padding: 40px;
     display: inline-block;
 }
-
 .loginImage {
     width: 70%;
     overflow: hidden;
     background-size: cover;
 }
-
 
 label, input, button, .loginHeader {
     font-family: SourceSansPro;   

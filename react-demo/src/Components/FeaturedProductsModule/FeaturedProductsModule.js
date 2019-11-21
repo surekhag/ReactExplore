@@ -19,27 +19,28 @@ class FeaturedProductsModule extends Component {
         )
             .then((response) => {                
                 this.setState({
-                    productData: response.data.response
+                    productData: response.data.response.records
                 })                
                 return;
             });
     }
+    render() {
 
-    render() {        
-        // console.log(this.state.productData);
-        let products=null;
-        if(this.state.productData){
-        let productData = this.state.productData;
-            console.log(productData );
-            //  products = productData.map(value => {
-            //     //  console.log(value);
-            //  return (<div>ProducIr :{value}</div>)
-            //   }  );
-              console.log("here");
+        let productList = null;
+        if (this.state.productData) {
+            let productData = this.state.productData;            
+            console.log(productData);
+            if (productData && productData.length>0) { 
+                productList = productData.map((value) => {
+                    console.log(value);
+                return <div>{value.productId}</div>
+                });
+            }
+
         }
-        
-        return (<div>here
-    <div>{products}</div>
+
+        return (<div>
+    <div>{productList}</div>
         </div>)
     }
 }
