@@ -1,0 +1,32 @@
+.cardsContainer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.arrow{
+    border: 1px solid red;
+    width: 10%;
+    display: flex;
+    align-self: center;
+}
+.arrow>span{
+    margin: auto;
+}
+.cardsCarousal{
+    width: 80%;
+    border: 1px solid red;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+.cardsCarousal >div{
+    border: 1px solid yellow;
+    display: inline-block;
+    padding-left: 20px;
+    width: 250px;
+    display: inline-block;
+}
+.cardsCarousal > div:last-child{
+    padding-right: 20px;
+}

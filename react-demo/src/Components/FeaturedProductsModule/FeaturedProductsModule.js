@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './FeaturedProductsModule.css';
+import Card from '../Card/Card';
 
 class FeaturedProductsModule extends Component {
 
@@ -17,10 +19,10 @@ class FeaturedProductsModule extends Component {
             method: "get"
         }
         )
-            .then((response) => {                
+            .then((response) => {
                 this.setState({
                     productData: response.data.response.records
-                })                
+                })
                 return;
             });
     }
@@ -29,18 +31,18 @@ class FeaturedProductsModule extends Component {
         let productList = null;
         if (this.state.productData) {
             let productData = this.state.productData;            
-            console.log(productData);
-            if (productData && productData.length>0) { 
+            if (productData && productData.length > 0) {
                 productList = productData.map((value) => {
                     console.log(value);
-                return <div>{value.productId}</div>
+                    return (<div><Card cardDetails={value}/></div>)
                 });
             }
-
         }
-
-        return (<div>
-    <div>{productList}</div>
+        
+        return (<div className="cardsContainer">
+            <div className="arrow"><span>arrow</span></div>
+            <div className="cardsCarousal">{productList}</div>
+            <div className="arrow"><span>arrow</span></div>
         </div>)
     }
 }
