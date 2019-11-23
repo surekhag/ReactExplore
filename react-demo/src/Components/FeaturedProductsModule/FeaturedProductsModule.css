@@ -4,32 +4,43 @@
     width: 100%;
 }
 
-.arrow{
-   
+.arrow{   
     width: 10%;
     display: flex;
     align-self: center;
 }
+.leftArrow, .rightArrow{
+    width: 40px;;
+}
 .arrow>span{
     margin: auto;
 }
+
 .cardsCarousal{
-    width: 80%;
-   
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
+    width: auto;
+   white-space: nowrap;
 }
-.cardsCarousal >div{
-    border: 1px solid grey;
-    display: inline-block;
-    margin-left: 20px;
+.cardsCarousal > div{   
+   margin: 0 10px;
+   overflow-x: scroll;
+   overflow-y: hidden;
+  width: 1128px;
+}
+.cardsCarousal >div  > div{
+    margin: 0 12px;
+    border-radius: 4px;
+    /* box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.05); */
+    border: solid 1px #0f76dd;
+    background-color: #ffffff; display: inline-block;
     width: 250px;
     display: inline-block;
 }
-.cardsCarousal > div:last-child{
-    margin-right: 20px;
+.cardsCarousal >div  > div:first-child{
+   margin-left: 24px;
 }
+.cardsCarousal >div  > div:last-child{
+     margin-right: 24px;
+ }
 .heading {
     margin-top: 40px;
     text-align: center;
