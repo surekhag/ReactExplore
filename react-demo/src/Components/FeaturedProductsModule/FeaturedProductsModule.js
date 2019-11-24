@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './FeaturedProductsModule.css';
 import Card from '../Card/Card';
+import Loader from '../Loader/Loader';
 
 import leftArrow from '../../Assets/Images/left-arrow.png';
 import rightArrow from '../../Assets/Images/right-arrow.png';
@@ -46,24 +47,31 @@ class FeaturedProductsModule extends Component {
     render() {
 
         let productList = null;
+        let showProdData =null;
         if (this.state.productData) {
             let productData = this.state.productData;            
             if (productData && productData.length > 0) {
-                productList = productData.map((value) => {
-                    console.log(value);
+                productList = productData.map((value) => {                  
                     return (<div><Card cardDetails={value}/></div>)
                 });
+
+                showProdData =  <div className="cardsContainer">
+                <div className="arrow"><span><img id="left" className="leftArrow" src={leftArrow} onClick={(event) => this.imageClick(event.target)} /></span></div>
+                <div className="cardsCarousal">
+                    <h1 className="heading">Featured Products</h1>
+                    <div id="cardsCarousal" >{productList}</div>
+                    </div>
+                <div className="arrow"><span><img id="right" className="rightArrow" src={rightArrow} onClick={(event) => this.imageClick(event.target)} /></span></div>
+            </div>
             }
+           
+        }
+        else{
+            showProdData = <div className="loader"><Loader /></div>
+            
         }
         
-        return (<div className="cardsContainer">
-            <div className="arrow"><span><img id="left" className="leftArrow" src={leftArrow} onClick={(event) => this.imageClick(event.target)} /></span></div>
-            <div className="cardsCarousal">
-                <h1 className="heading">Featured Products</h1>
-                <div id="cardsCarousal" >{productList}</div>
-                </div>
-            <div className="arrow"><span><img id="right" className="rightArrow" src={rightArrow} onClick={(event) => this.imageClick(event.target)} /></span></div>
-        </div>)
+        return (<div>{showProdData}</div>)
     }
 }
 export default FeaturedProductsModule;
