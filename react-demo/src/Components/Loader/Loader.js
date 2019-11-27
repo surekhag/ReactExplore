@@ -10,7 +10,7 @@ import Loader from 'react-loader-spinner';
          color="#A9A9A9"
          height={100}
          width={100}
-         timeout={3000} //3 secs
+         // timeout={3000} //3 secs
 
       />
      );
