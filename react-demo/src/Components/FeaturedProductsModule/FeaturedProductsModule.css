@@ -21,7 +21,8 @@
     width: 1128px;
     position: relative;
     height: 586px;
-   white-space: nowrap;
+   white-space: nowrap;   
+   margin: auto;
 }
 .cardsCarousal > div{   
    margin: 0 10px;
