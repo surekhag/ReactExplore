@@ -9,9 +9,7 @@ class HomeModule extends Component {
         <LoginModule />
         <FeaturedProductsModule />
       </div>
-
-
-    )
+    );
   }
 }
 export default HomeModule;

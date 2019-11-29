@@ -1,54 +1,56 @@
-.container{
-    display: flex;
+.container {
+  display: flex;
 }
-.container > div{
-display: flex;
-flex-direction: column;
-justify-content: center;
+.container > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.login {
+  width: 30%;
+  height: 100vh;
+  align-items: center;
+}
 
-}
-.login{
-    width: 30%;
-    height: 100vh;  
-    align-items: center; 
-}
-
-.login >div{
-    text-align: left;
-    padding: 40px;
-    display: inline-block;
+.login > div {
+  text-align: left;
+  padding: 40px;
+  display: inline-block;
 }
 .loginImage {
-    width: 70%;
-    overflow: hidden;
-    background-size: cover;
+  width: 70%;
+  overflow: hidden;
+  background-size: cover;
 }
 
-label, input, button, .loginHeader {
-    font-family: SourceSansPro;   
-    font-stretch: normal;
-    font-style: normal;    
-    letter-spacing: normal;  
-    text-align: left; 
+label,
+input,
+button,
+.loginHeader {
+  font-family: SourceSansPro;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: left;
 }
 
-label{
-    font-size: 10px;
-    font-weight: bold;
-    line-height: 2.1;
-    color: #3f4143;
+label {
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 2.1;
+  color: #3f4143;
 }
 
-input{
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 1.5;
-    color: #354052;
-    padding: 0 8px 0 4px;
-    width: 100%;
+input {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.5;
+  color: #354052;
+  padding: 0 8px 0 4px;
+  width: 100%;
 }
 
-button{    
+button {
   font-size: 14px;
   font-weight: bold;
   line-height: 1.5;
@@ -56,15 +58,15 @@ button{
   text-align: center;
   color: #ffffff;
   background-color: #e41e26;
-  margin-top: 22px;  
+  margin-top: 22px;
   border-radius: 4px;
   width: 50%;
   height: 40px;
 }
-.loginHeader{    
-    font-size: 28px;
-    font-weight: bold;  
-    line-height: 1.14;
-    text-align: center;
-    color: #3f4243;
-  }
+.loginHeader {
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1.14;
+  text-align: center;
+  color: #3f4243;
+}
