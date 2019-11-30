@@ -2,7 +2,6 @@ import React from 'react';
 import './Card.scss';
 
 function card(props) {
-  console.log('inside card', props);
   return (
     <div className="cardContainer">
       <div>

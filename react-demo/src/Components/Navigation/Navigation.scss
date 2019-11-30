@@ -1,0 +1,24 @@
+.navigation {
+  background-color: indianred;
+  text-align: center;
+  ul {
+    display: inline-block;
+    padding: 0;
+    font-weight: bold;
+    li {
+      display: inline-block;
+      padding: 10px 20px;
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+      a:hover {
+        text-decoration: underline;
+        color: white;
+        padding-top: 2px;
+      }
+    }
+  }
+}
