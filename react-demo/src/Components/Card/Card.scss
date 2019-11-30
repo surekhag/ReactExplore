@@ -19,6 +19,12 @@
       letter-spacing: 0.76px;
       color: #3f4143;
     }
+    .prodInfo {
+      white-space: normal;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      height: 43px;
+    }
     .prodId {
       padding: 5px 0 13px 0;
       font-family: SourceSansPro;

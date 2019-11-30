@@ -60,33 +60,9 @@ class FeaturedProductsModule extends Component {
         });
 
         showProdData = (
-          <div className="cardsContainer">
-            <div className="arrow">
-              <span>
-                <img
-                  id="left"
-                  className="leftArrow"
-                  src={leftArrow}
-                  onClick={event => this.imageClick(event.target)}
-                  alt="Left"
-                />
-              </span>
-            </div>
-            <div className="cardsCarousal">
-              <h1 className="heading">Featured Products</h1>
-              <div id="cardsCarousal">{productList}</div>
-            </div>
-            <div className="arrow">
-              <span>
-                <img
-                  id="right"
-                  className="rightArrow"
-                  src={rightArrow}
-                  onClick={event => this.imageClick(event.target)}
-                  alt="Right"
-                />
-              </span>
-            </div>
+          <div className="cardsCarousal">
+            <h1 className="heading">Featured Products</h1>
+            <div id="cardsCarousal">{productList}</div>
           </div>
         );
       }
@@ -98,7 +74,7 @@ class FeaturedProductsModule extends Component {
       );
     }
 
-    return <div>{showProdData}</div>;
+    return <div className="cardsContainer">{showProdData}</div>;
   }
 }
 export default FeaturedProductsModule;

@@ -1,0 +1,44 @@
+.cardsContainerCourasal {
+  display: flex;
+  height: 626px;
+  overflow: hidden;
+  .arrow {
+    width: 10%;
+    display: flex;
+    align-self: center;
+    .leftArrow,
+    .rightArrow {
+      width: 40px;
+    }
+    span {
+      margin: auto;
+    }
+  }
+  .content {
+    width: 1128px;
+    margin: auto;
+  }
+  .cardsCarousal {
+    > div {
+      margin: 0 10px;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      width: 1128px;
+      position: absolute;
+      bottom: -17px;
+      display: block;
+      white-space: nowrap;
+      > div {
+        margin: 0 12px;
+      }
+    }
+    > div {
+      > div:first-child {
+        margin-left: 24px;
+      }
+      > div:last-child {
+        margin-right: 24px;
+      }
+    }
+  }
+}
