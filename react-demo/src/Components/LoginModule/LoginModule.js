@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './LoginModule.css';
+import './LoginModule.scss';
 import axios from 'axios';
 import ErrorModule from '../ErrorModule/ErrorModule';
 import login from '../../Assets/Images/login-cover.jpg';

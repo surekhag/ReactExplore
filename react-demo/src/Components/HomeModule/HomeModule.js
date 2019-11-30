@@ -6,7 +6,7 @@ class HomeModule extends Component {
   render() {
     return (
       <div>
-        <LoginModule />
+        {/* <LoginModule /> */}
         <FeaturedProductsModule />
       </div>
     );

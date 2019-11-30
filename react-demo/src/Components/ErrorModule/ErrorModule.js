@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './ErrorModule.css';
+import './ErrorModule.scss';
 
 class errorModule extends Component {
   handleModalClose = event => {
