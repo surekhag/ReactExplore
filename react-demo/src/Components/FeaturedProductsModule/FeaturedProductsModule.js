@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './FeaturedProductsModule.css';
+import './FeaturedProductsModule.scss';
 import Card from '../Card/Card';
 import Loader from '../Loader/Loader';
 
