@@ -1,6 +1,7 @@
 import React from 'react';
 import LoginModule from '../LoginModule/LoginModule';
 import FeaturedProductsModule from '../FeaturedProductsModule/FeaturedProductsModule';
+import FeaturedProductSearch from '../FeaturedProductSearch/FeaturedProductSearch';
 import Navigation from '../Navigation/Navigation';
 import Carousal from '../Carousal/Carousal';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
@@ -17,6 +18,7 @@ const HomeModule = () => {
           path="/featured products List"
           component={FeaturedProductsModule}
         />
+        <Route path="/searchProduct" component={FeaturedProductSearch} />
       </BrowserRouter>
     </div>
   );

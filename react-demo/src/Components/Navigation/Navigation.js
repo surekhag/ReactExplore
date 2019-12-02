@@ -14,6 +14,9 @@ const Navigation = () => {
         <li>
           <a href="/featured products List"> Featured Products Listing </a>
         </li>
+        <li>
+          <a href="/searchProduct"> Search Page </a>
+        </li>
       </ul>
     </div>
   );

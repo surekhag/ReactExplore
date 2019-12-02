@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './FeaturedProductsModule.scss';
+import './FeaturedProductSearch.scss';
 import Loader from '../Loader/Loader';
 import ProductListing from '../ProductListing/ProductListing';
 
 class FeaturedProductsModule extends Component {
   state = {
-    productData: null
+    productData: null,
+    searchText: ''
   };
 
   componentDidMount() {
@@ -32,12 +33,44 @@ class FeaturedProductsModule extends Component {
     );
   }
 
+  seachProducts = event => {
+    if (event.target.value.length >= 3) {
+      this.setState({ searchText: event.target.value });
+    } else {
+      this.setState({ searchText: '' });
+    }
+  };
+
   render() {
-    let showProdData = null;
+    let showProdData = null,
+      result = null;
+    let searchText = this.state.searchText;
     if (this.state.productData) {
       let productData = this.state.productData;
       if (productData && productData.length > 0) {
-        showProdData = <ProductListing productData={productData} />;
+        if (searchText.length > 0) {
+          result = productData.filter(prod => {
+            return (
+              prod.compositeProducts[0].EProductMedia.smallTitle.indexOf(
+                searchText
+              ) != -1
+            );
+          });
+        } else {
+          result = this.state.productData;
+        }
+
+        showProdData = (
+          <div>
+            <div className="searchText">
+              <input
+                placeholder="Enter Product Name"
+                onChange={this.seachProducts}
+              />
+            </div>
+            <ProductListing productData={result} />
+          </div>
+        );
       }
     } else {
       showProdData = (
