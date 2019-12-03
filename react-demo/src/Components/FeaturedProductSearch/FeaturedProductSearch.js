@@ -3,8 +3,9 @@ import axios from 'axios';
 import './FeaturedProductSearch.scss';
 import Loader from '../Loader/Loader';
 import ProductListing from '../ProductListing/ProductListing';
+import hocforsearch from '../../hoc/hocforsearch';
 
-class FeaturedProductsModule extends Component {
+class FeaturedProductSearch extends Component {
   state = {
     productData: null,
     searchText: ''
@@ -51,9 +52,9 @@ class FeaturedProductsModule extends Component {
         if (searchText.length > 0) {
           result = productData.filter(prod => {
             return (
-              prod.compositeProducts[0].EProductMedia.smallTitle.indexOf(
-                searchText
-              ) != -1
+              prod.compositeProducts[0].EProductMedia.smallTitle
+                .toLowerCase()
+                .indexOf(searchText.toLowerCase()) != -1
             );
           });
         } else {
@@ -83,4 +84,4 @@ class FeaturedProductsModule extends Component {
     return <div className="cardsContainer">{showProdData}</div>;
   }
 }
-export default FeaturedProductsModule;
+export default FeaturedProductSearch;
