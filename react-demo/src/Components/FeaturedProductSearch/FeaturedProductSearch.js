@@ -33,6 +33,7 @@ class FeaturedProductSearch extends Component {
     );
   }
 
+  // Enter minimum three letters for search
   seachProducts = event => {
     if (event.target.value.length >= 3) {
       this.setState({ searchText: event.target.value });
