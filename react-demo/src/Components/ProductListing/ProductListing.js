@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Card from '../Card/Card';
-import FeaturedProductsModule from '../FeaturedProductsModule/FeaturedProductsModule';
 
 const ProductListing = props => {
   let productList = props.productData.map(value => {
