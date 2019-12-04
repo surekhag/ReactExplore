@@ -3,7 +3,6 @@ import axios from 'axios';
 import './FeaturedProductSearch.scss';
 import Loader from '../Loader/Loader';
 import ProductListing from '../ProductListing/ProductListing';
-import hocforsearch from '../../hoc/hocforsearch';
 
 class FeaturedProductSearch extends Component {
   state = {
