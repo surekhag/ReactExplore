@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './HigherOrderComponentSearch.scss';
+import './ProductSearchHOC.scss';
 import Loader from '../Loader/Loader';
+import SearchBox from '../SearchBox/SearchBox';
 
-const HigherOrderComponentSearch = ProductListing => {
+const ProductSearchHOC = ProductListing => {
   class HOC extends Component {
     state = {
       productData: null,
@@ -63,12 +64,7 @@ const HigherOrderComponentSearch = ProductListing => {
 
           showProdData = (
             <div>
-              <div className="searchText">
-                <input
-                  placeholder="Enter Product Name"
-                  onChange={this.seachProducts}
-                />
-              </div>
+              <SearchBox seachProducts={this.seachProducts} />
               <ProductListing productData={result} />
             </div>
           );
@@ -88,4 +84,4 @@ const HigherOrderComponentSearch = ProductListing => {
   return HOC;
 };
 
-export default HigherOrderComponentSearch;
+export default ProductSearchHOC;

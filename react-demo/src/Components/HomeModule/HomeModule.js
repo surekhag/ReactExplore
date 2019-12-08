@@ -2,7 +2,7 @@ import React from 'react';
 import LoginModule from '../LoginModule/LoginModule';
 import FeaturedProductsModule from '../FeaturedProductsModule/FeaturedProductsModule';
 import ProductListing from '../ProductListing/ProductListing';
-import HigherOrderComponentSearch from '../HigherOrderComponentSearch/HigherOrderComponentSearch';
+import ProductSearchHOC from '../ProductSearchHOC/ProductSearchHOC';
 import Navigation from '../Navigation/Navigation';
 import Carousal from '../Carousal/Carousal';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
@@ -21,7 +21,7 @@ const HomeModule = () => {
         />
         <Route
           path="/searchProduct"
-          component={HigherOrderComponentSearch(ProductListing)}
+          component={ProductSearchHOC(ProductListing)}
         />
       </BrowserRouter>
     </div>
