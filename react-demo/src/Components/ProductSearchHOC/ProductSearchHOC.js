@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './ProductSearchHOC.scss';
 import Loader from '../Loader/Loader';
-import SearchBox from '../SearchBox/SearchBox';
 
-const ProductSearchHOC = ProductListing => {
+const ProductSearchHOC = (ProductListing, SearchBox) => {
   class HOC extends Component {
     state = {
       productData: null,

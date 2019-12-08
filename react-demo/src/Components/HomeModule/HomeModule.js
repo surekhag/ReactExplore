@@ -4,6 +4,7 @@ import FeaturedProductsModule from '../FeaturedProductsModule/FeaturedProductsMo
 import ProductListing from '../ProductListing/ProductListing';
 import ProductSearchHOC from '../ProductSearchHOC/ProductSearchHOC';
 import Navigation from '../Navigation/Navigation';
+import SearchBox from '../SearchBox/SearchBox';
 import Carousal from '../Carousal/Carousal';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 
@@ -21,7 +22,7 @@ const HomeModule = () => {
         />
         <Route
           path="/searchProduct"
-          component={ProductSearchHOC(ProductListing)}
+          component={ProductSearchHOC(ProductListing, SearchBox)}
         />
       </BrowserRouter>
     </div>
