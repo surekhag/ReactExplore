@@ -17,6 +17,9 @@ const Navigation = () => {
         <li>
           <a href="/searchProduct"> Search Page </a>
         </li>
+        <li>
+          <a href="/productData"> ProdData Page </a>
+        </li>
       </ul>
     </div>
   );

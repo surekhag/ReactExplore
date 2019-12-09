@@ -7,6 +7,7 @@ import Navigation from '../Navigation/Navigation';
 import SearchBox from '../SearchBox/SearchBox';
 import Carousal from '../Carousal/Carousal';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import ProductData from '../ProductData/ProductData';
 
 const HomeModule = () => {
   return (
@@ -24,6 +25,7 @@ const HomeModule = () => {
           path="/searchProduct"
           component={ProductSearchHOC(ProductListing, SearchBox)}
         />
+        <Route path="/productData" component={ProductData} />
       </BrowserRouter>
     </div>
   );
