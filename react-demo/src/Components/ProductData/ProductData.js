@@ -32,10 +32,11 @@ class ProductData extends Component {
     );
   }
   render() {
+    let searchForProducts = null;
     if (this.state.productData && this.state.productData.length > 0) {
-      console.log('here', this.state.productData);
       let productData = this.state.productData;
-      return <div> test </div>;
+      let SearchForProducts = ProductSearchHOC(ProductListing, SearchBox);
+      return <SearchForProducts productData={productData} />;
     } else
       return (
         <div className="loader">

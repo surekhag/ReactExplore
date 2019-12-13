@@ -21,10 +21,6 @@ const HomeModule = () => {
           path="/featured products List"
           component={FeaturedProductsModule}
         />
-        <Route
-          path="/searchProduct"
-          component={ProductSearchHOC(ProductListing, SearchBox)}
-        />
         <Route path="/productData" component={ProductData} />
       </BrowserRouter>
     </div>

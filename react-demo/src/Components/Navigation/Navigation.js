@@ -15,10 +15,7 @@ const Navigation = () => {
           <a href="/featured products List"> Featured Products Listing </a>
         </li>
         <li>
-          <a href="/searchProduct"> Search Page </a>
-        </li>
-        <li>
-          <a href="/productData"> ProdData Page </a>
+          <a href="/productData"> Search Page </a>
         </li>
       </ul>
     </div>
