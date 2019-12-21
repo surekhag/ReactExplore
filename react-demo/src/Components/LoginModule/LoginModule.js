@@ -3,13 +3,72 @@ import './LoginModule.scss';
 import axios from 'axios';
 import ErrorModule from '../ErrorModule/ErrorModule';
 import login from '../../Assets/Images/login-cover.jpg';
+import { connect } from 'react-redux';
 
 class LoginModule extends Component {
   state = {
     username: null,
     password: null,
     show: 'none',
-    message: ''
+    message: '',
+    token: '',
+    userId: '',
+    firstName: ''
+  };
+
+  login = () => {
+    axios({
+      url:
+        'https://dev-bepsy-api.objectedge.com/oe_commerce_api/occ/v1/oauth/login',
+      headers: {
+        authorization: 'Bearer YWRtaW46YWRtaW4=',
+        'content-type': 'application/json'
+      },
+      data: {
+        password: 'Objectedge$10',
+        username: 'trupti.kashid@objectedge.com'
+      },
+      method: 'post'
+    }).then(
+      response => {
+        this.setState({
+          username: '',
+          password: '',
+          show: 'flex',
+          message: 'Login Successful!',
+          token: response.data.access_token,
+          userId: response.data.id
+        });
+        this.getUserProfile();
+        return;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  };
+  getUserProfile = () => {
+    axios({
+      url:
+        'https://dev-bepsy-api.objectedge.com/oe_commerce_api/occ/v1/profiles/current?profileId=' +
+        this.state.userId,
+      headers: {
+        authorization: 'Bearer ' + this.state.token,
+        'content-type': 'application/json'
+      },
+      method: 'get'
+    }).then(
+      response => {
+        this.setState({
+          firstName: response.data.profile_user.firstName
+        });
+
+        return;
+      },
+      error => {
+        console.log(error);
+      }
+    );
   };
   handleSubmit = e => {
     e.preventDefault();
@@ -20,32 +79,9 @@ class LoginModule extends Component {
       this.isValidPassword(this.state.password)
     ) {
       if (this.isValidPassword(this.state.password)) {
-        axios({
-          url:
-            'https://dev-bepsy-api.objectedge.com/oe_commerce_api/occ/v1/oauth/login',
-          headers: {
-            authorization: 'Bearer YWRtaW46YWRtaW4=',
-            'content-type': 'application/json'
-          },
-          data: {
-            password: 'Objectedge$10',
-            username: 'trupti.kashid@objectedge.com'
-          },
-          method: 'post'
-        }).then(
-          () => {
-            this.setState({
-              username: '',
-              password: '',
-              show: 'flex',
-              message: 'Login Successful!'
-            });
-            return;
-          },
-          error => {
-            console.log(error);
-          }
-        );
+        this.login();
+
+        // this.props.loginToSite(this.state.username, this.state.password);
       } else {
         this.setState({
           show: 'flex',
@@ -93,6 +129,8 @@ class LoginModule extends Component {
       show: 'none'
     });
   };
+  componentDidMount() {}
+
   render() {
     return (
       <div className="container">
@@ -137,5 +175,20 @@ class LoginModule extends Component {
     );
   }
 }
-
-export default LoginModule;
+const mapStateToProps = state => {
+  return {
+    token: state.token,
+    profileId: state.profileId
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    loginToSite: (username, password) => {
+      dispatch({
+        type: 'LOG_IN',
+        payload: { username: username, password: password }
+      });
+    }
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(LoginModule);

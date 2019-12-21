@@ -1,6 +1,11 @@
 .navigation {
   background-color: indianred;
   text-align: center;
+  .userName {
+    float: right;
+    margin: 26px 0;
+    color: white;
+  }
   ul {
     display: inline-block;
     padding: 0;

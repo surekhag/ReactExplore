@@ -12,6 +12,7 @@ const Navigation = () => {
           <a href="/featured products"> Featured Products </a>
         </li>
       </ul>
+      <span class="userName">Display USERNAME here</span>
     </div>
   );
 };
