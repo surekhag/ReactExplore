@@ -1,6 +1,11 @@
 .navigation {
   background-color: indianred;
   text-align: center;
+  .userName {
+    float: right;
+    margin: 26px 0;
+    color: white;
+  }
   ul {
     display: inline-block;
     padding: 0;
@@ -8,13 +13,15 @@
     li {
       display: inline-block;
       padding: 10px 20px;
-      a {
+      a,
+      span {
         color: white;
         text-decoration: none;
         font-size: 16px;
         text-transform: uppercase;
       }
-      a:hover {
+      a:hover,
+      .logout:hover {
         text-decoration: underline;
         color: white;
         padding-top: 2px;
