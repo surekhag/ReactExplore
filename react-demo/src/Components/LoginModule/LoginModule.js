@@ -4,16 +4,13 @@ import axios from 'axios';
 import ErrorModule from '../ErrorModule/ErrorModule';
 import login from '../../Assets/Images/login-cover.jpg';
 import { connect } from 'react-redux';
-
+import { setLogInTokenAction, setUserName } from '../../actions/loginAction';
 class LoginModule extends Component {
   state = {
     username: null,
     password: null,
     show: 'none',
-    message: '',
-    token: '',
-    userId: '',
-    firstName: ''
+    message: ''
   };
 
   login = () => {
@@ -39,37 +36,37 @@ class LoginModule extends Component {
           token: response.data.access_token,
           userId: response.data.id
         });
-        this.getUserProfile();
+        this.props.updateToken(response.data.access_token, response.data.id);
+
+        this.getUserProfile(response.data.access_token, response.data.id);
         return;
       },
-      error => {
-        console.log(error);
-      }
+      error => {}
     );
   };
-  getUserProfile = () => {
+  getUserProfile = (token, userId) => {
     axios({
       url:
         'https://dev-bepsy-api.objectedge.com/oe_commerce_api/occ/v1/profiles/current?profileId=' +
-        this.state.userId,
+        userId,
       headers: {
-        authorization: 'Bearer ' + this.state.token,
+        authorization: 'Bearer ' + token,
         'content-type': 'application/json'
       },
       method: 'get'
     }).then(
       response => {
-        this.setState({
-          firstName: response.data.profile_user.firstName
-        });
-
+        const name =
+          response.data.profile_user.firstName +
+          ' ' +
+          response.data.profile_user.lastName;
+        this.props.setProfileUserName(name);
         return;
       },
-      error => {
-        console.log(error);
-      }
+      error => {}
     );
   };
+
   handleSubmit = e => {
     e.preventDefault();
 
@@ -80,8 +77,6 @@ class LoginModule extends Component {
     ) {
       if (this.isValidPassword(this.state.password)) {
         this.login();
-
-        // this.props.loginToSite(this.state.username, this.state.password);
       } else {
         this.setState({
           show: 'flex',
@@ -129,7 +124,6 @@ class LoginModule extends Component {
       show: 'none'
     });
   };
-  componentDidMount() {}
 
   render() {
     return (
@@ -178,17 +172,14 @@ class LoginModule extends Component {
 const mapStateToProps = state => {
   return {
     token: state.token,
-    profileId: state.profileId
+    profileId: state.profileId,
+    profile_user_name: state.profile_user_name
   };
 };
-const mapDispatchToProps = dispatch => {
-  return {
-    loginToSite: (username, password) => {
-      dispatch({
-        type: 'LOG_IN',
-        payload: { username: username, password: password }
-      });
-    }
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  updateToken: (token, profileId) =>
+    dispatch(setLogInTokenAction(token, profileId)),
+  setProfileUserName: userName => dispatch(setUserName(userName))
+});
+
 export default connect(mapStateToProps, mapDispatchToProps)(LoginModule);

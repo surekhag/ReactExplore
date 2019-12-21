@@ -1,47 +1,32 @@
-import axios from 'axios';
+import { SET_LOG_IN_TOKEN, SET_USERNAME, CLEAR_USER_DATA } from '../constants';
 
 const initState = {
   token: '',
-  firstName: '',
+  profile_user_name: '',
   profileId: ''
 };
 
 const rootReducer = (state = initState, action) => {
   switch (action.type) {
-    case 'LOG_IN':
-      axios({
-        url:
-          'https://dev-bepsy-api.objectedge.com/oe_commerce_api/occ/v1/oauth/login',
-        headers: {
-          authorization: 'Bearer YWRtaW46YWRtaW4=',
-          'content-type': 'application/json'
-        },
-        data: {
-          password: 'Objectedge$10',
-          username: 'trupti.kashid@objectedge.com'
-        },
-        method: 'post'
-      }).then(
-        response => {
-          console.log(response);
-          // this.setState({
-          //   username: '',
-          //   password: '',
-          //   show: 'flex',
-          //   message: 'Login Successful!',
-          //   token: response.data.access_token,
-          //   userId: response.data.id
-          // });
-          // this.getUserProfile();
-          return;
-        },
-        error => {
-          console.log(error);
-        }
-      );
-
+    case SET_LOG_IN_TOKEN:
       return {
-        ...state
+        ...state,
+        token: action.payload.token,
+        profileId: action.payload.profileId
+      };
+
+    case SET_USERNAME:
+      return {
+        ...state,
+        profile_user_name: action.data
+      };
+
+    case CLEAR_USER_DATA:
+      return {
+        ...state,
+        token: '',
+        profile_user_name: '',
+        profileId: ''
       };
 
     default:
