@@ -7,7 +7,7 @@ const initState = {
 const rootReducer = (state = initState, action) => {
   switch (action.type) {
     case SET_PRODUCTS_DATA:
-      console.log('in reducer', action.data);
+      // console.log('in reducer', action.data);
       return {
         ...state,
         productsData: action.data

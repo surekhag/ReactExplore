@@ -14,7 +14,8 @@ class FeaturedProductsModule extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props);
+    console.log('componentDidMount few.js');
+    console.log('api call', this.props);
     // if (this.props.productsData) {
     //   let val = this.props.productsData;
     //   this.setState({ productData: : val })
@@ -34,7 +35,7 @@ class FeaturedProductsModule extends Component {
         this.setState({
           productData: response.data.response.records
         });
-        this.props.setProductsDataToStore(response.data.response.records);
+        // this.props.setProductsDataToStore(response.data.response.records);
         return;
       },
       error => {
@@ -51,8 +52,30 @@ class FeaturedProductsModule extends Component {
     }
   };
 
+  static getDerivedStateFromProps(state, props) {
+    console.log('getDerivedStateFromProps few.js', props);
+    // return { ...state };
+  }
+
+  // componentDidMount() {
+  //   console.log('componentDidMount few.js');
+  // }
+
+  shouldComponentUpdate() {
+    console.log('shouldComponentUpdate few.js');
+    return true;
+  }
+
+  getSnapshotBeforeUpdate() {
+    console.log('getSnapshotBeforeUpdate few.js');
+  }
+
+  componentDidUpdate() {
+    console.log('componentDidUpdate few.js');
+  }
+
   render() {
-    // console.log(this.props);
+    console.log('render in child');
     let productList = null;
     let showProdData = null;
     if (this.state.productData) {
@@ -60,9 +83,9 @@ class FeaturedProductsModule extends Component {
       if (productData && productData.length > 0) {
         productList = productData.map(value => {
           return (
-            <div>
+            <>
               <Card cardDetails={value} />
-            </div>
+            </>
           );
         });
 
@@ -118,7 +141,6 @@ const mapDispatchToProps = dispatch => ({
   setProductsDataToStore: data => dispatch(setProductsData(data))
 });
 
-// export default FeaturedProductsModule;
 export default connect(
   mapStateToProps,
   mapDispatchToProps
