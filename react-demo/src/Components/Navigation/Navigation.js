@@ -1,21 +1,22 @@
 import React from 'react';
 import './Navigation.scss';
+import { Link } from 'react-router-dom';
 
 const Navigation = () => {
   return (
     <div className="navigation">
       <ul className="menu">
         <li>
-          <a href="/login">Login</a>
+          <Link to="/">Login</Link>
         </li>
         <li>
-          <a href="/featured products"> Featured Products </a>
+          <Link to="/featured products">Featured Products </Link>
         </li>
         <li>
-          <a href="/featured products List"> Featured Products Listing </a>
+          <Link to="/featured products List"> Featured Products Listing</Link>
         </li>
         <li>
-          <a href="/productData"> Search Page </a>
+          <Link to="/productData">Search Page</Link>
         </li>
       </ul>
     </div>
