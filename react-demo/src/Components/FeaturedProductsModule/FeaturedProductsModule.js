@@ -14,7 +14,7 @@ class FeaturedProductsModule extends Component {
   };
 
   componentDidMount() {
-    // console.log(this.props.productsData);
+    console.log(this.props);
     // if (this.props.productsData) {
     //   let val = this.props.productsData;
     //   this.setState({ productData: : val })
@@ -52,6 +52,7 @@ class FeaturedProductsModule extends Component {
   };
 
   render() {
+    // console.log(this.props);
     let productList = null;
     let showProdData = null;
     if (this.state.productData) {
