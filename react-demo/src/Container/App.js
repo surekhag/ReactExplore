@@ -28,8 +28,6 @@ class App extends Component {
     );
   }
   render() {
-    // console.log(this.props);
-    // console.log('in parent render');
     return (
       <div className="App">
         <HomeModule />
